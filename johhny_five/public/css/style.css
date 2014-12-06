@@ -6,7 +6,7 @@
 html{
 	font-family: 'Helvetica', 'Arial', sans-serif;
 	/* DIRTY FIX om de gehele achtergrond zwart te houden na resize door full screen mode */
-	background: #000000; 
+	background: #252525; 
 }
 
 #container{
@@ -20,7 +20,14 @@ html{
 	top: 10px;
 	left: 10px;
 	z-index: 999;
-	color: red;
+	padding: 10px;
+	color: #6B6B6B;
+	background-color: rgba(255,255,255,.03);
+}
+
+#sliders div{
+	margin-bottom: 15px;
+	text-align: center;
 }
 
 #fs-button{
@@ -28,13 +35,19 @@ html{
 	top: 10px;
 	right: 10px;
 	padding: 10px;
-	background: #ABABAB;
-	color: white;
+	color: #6B6B6B;
+	background-color: rgba(255,255,255,.03);
 	z-index: 998;
 	cursor: pointer;
 }
 
-#canvas-container{
+#bg-canvas-container, #top-canvas-container{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*#canvas-container{
 	background-color: rgba(0,0,0,0);
     -webkit-transform: rotateX(0deg);
     -webkit-transform: rotateY(0deg);
@@ -43,6 +56,4 @@ html{
     -webkit-transform: skaleY(1);
     -webkit-transform: skew(0,0);
 }
-
-#sine-canvas{
-}
+*/
