@@ -3,9 +3,10 @@ $(function(){
 	var socket, socketid;
 	var top_canvas_offset;
 	var degrees = 0;
-	var yPos, amplitude, length;
+	var amplitude, length;
+	var yPos = 200;
 	var xPos = -100;
-	var road_width = 50;
+	var road_width = 40;
 	var tick_counter = 0;
 	var fps = 60;
 	var road_arr = [];
@@ -13,6 +14,7 @@ $(function(){
 	var road_container;
 	var robot, robot_xPos = 200, robot_yPos = 425;
 	var edge_indicator;
+	var maxDiv = 75;
 
 /* ------------------------ CANVAS ------------------------ */
 
@@ -31,9 +33,21 @@ $(function(){
 
 	function drawSinWave(){
 		xPos = xPos+4;
-		yPos = Math.sin(degrees)*(Math.PI/180)*1000;
+		//yPos = Math.sin(degrees)*(Math.PI/180)*amplitude*10000;
+		console.log('yPos: ' + yPos);
+
+		yPos = yPos + (maxDiv * (Math.random() -0.5));
+
+		if (yPos <= 0) {
+			yPos = 0;
+		};
+
+		if (yPos >= 450) {
+			yPos = 450;
+		};
+
 		var road_segment = new createjs.Shape();
-		road_segment.graphics.beginFill('#ffffff').drawCircle(xPos, 425+yPos, road_width);
+		road_segment.graphics.beginFill('#ffffff').drawCircle(xPos, yPos, road_width);
 		road_arr.push(road_segment);
 		degrees = degrees + 0.09;
 		road_arr.pop();
@@ -44,7 +58,7 @@ $(function(){
 	}
 
 	function drawRobot(){
-		edge_yPos = Math.sin(degrees+400)*(Math.PI/180)*1000;
+		edge_yPos = yPos;
 		top_stage.removeAllChildren();
 		top_stage.update();
 		robot = new createjs.Shape();
@@ -61,7 +75,7 @@ $(function(){
 		drawRobot();
 		checkRobotPosition();
 		length = Math.floor(Math.random() * 10) + 1;
-		amplitude = (Math.random() * 1500) + 500;
+		amplitude = Math.random();
 		bg_stage.update();
 		top_stage.update();
 		top_canvas_offset = $('#top-canvas-container').offset();
@@ -79,7 +93,7 @@ $(function(){
 
 	function checkRobotPosition(){
 		var e = 375+edge_yPos+50;
-		console.log('robot y: ' + robot_yPos + ' | edge y: ' + e);
+		//console.log('robot y: ' + robot_yPos + ' | edge y: ' + e);
 		if(robot_yPos < e-5 || robot_yPos > e + 55){
 			robot.graphics.clear();
 			robot.graphics.beginFill('#ff0000').drawRect(robot_xPos, robot_yPos-50, 50, 50);
@@ -110,13 +124,29 @@ $(function(){
 		moveRight();
 	});
 
+	document.onkeydown = checkKey;
+
+	function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+        moveLeft();
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        moveRight();
+    }
+}
+
 	function moveLeft(){
-		console.log('move left');
+		//console.log('move left');
 		robot_yPos-=10;
 	}
 
 	function moveRight(){
-		console.log('move right');
+		//console.log('move right');
 		robot_yPos+=10;
 	}
 
