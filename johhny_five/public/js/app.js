@@ -15,6 +15,7 @@ $(function(){
 	var robot, robot_xPos = 200, robot_yPos = 425;
 	var edge_indicator;
 	var maxDiv = 75;
+	var background
 
 /* ------------------------ CANVAS ------------------------ */
 
@@ -27,6 +28,8 @@ $(function(){
 	var top_stage = new createjs.Stage(top_canvas);
 
 	function init(){
+		background = new createjs.Bitmap("/assets/images/background.png");
+		bg_stage.addChild(background);
 		road_container = new createjs.Container(); 
 		bg_stage.addChild(road_container);
 	}
@@ -34,7 +37,7 @@ $(function(){
 	function drawSinWave(){
 		xPos = xPos+4;
 		//yPos = Math.sin(degrees)*(Math.PI/180)*amplitude*10000;
-		console.log('yPos: ' + yPos);
+		// console.log('yPos: ' + yPos);
 
 		yPos = yPos + (maxDiv * (Math.random() -0.5));
 
@@ -47,7 +50,7 @@ $(function(){
 		};
 
 		var road_segment = new createjs.Shape();
-		road_segment.graphics.beginFill('#ffffff').drawCircle(xPos, yPos, road_width);
+		road_segment.graphics.beginFill('#c9c9c9').drawCircle(xPos, yPos, road_width);
 		road_arr.push(road_segment);
 		degrees = degrees + 0.09;
 		road_arr.pop();
@@ -74,6 +77,7 @@ $(function(){
 		drawSinWave();
 		drawRobot();
 		checkRobotPosition();
+		scrollBackground();
 		length = Math.floor(Math.random() * 10) + 1;
 		amplitude = Math.random();
 		bg_stage.update();
@@ -100,6 +104,15 @@ $(function(){
 		}else{
 			robot.graphics.clear();
 			robot.graphics.beginFill('#ABABAB').drawRect(robot_xPos, robot_yPos-50, 50, 50);
+		}
+	}
+
+	function scrollBackground(){
+		console.log('background x: ' + background.x);
+		if(background.x <= -6278){
+			background.x = -1;
+		} else{
+			background.x -= 3;
 		}
 	}
 
