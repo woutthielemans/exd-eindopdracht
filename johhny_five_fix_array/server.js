@@ -3,6 +3,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
+var startTime;
 
 var j5 = require('johnny-five');
 var board, leds=[], ledPins = [2,3,4,5,6,7];
@@ -21,6 +22,9 @@ io.on('connection', function(socket){
     var left_is_down = false;
     var right_is_down = false;
 
+    var width = 200;
+    var pos;
+
     motor = new j5.Motor({
       pins: {
         pwm: 9,
@@ -35,7 +39,7 @@ io.on('connection', function(socket){
     });
 
     button_left.on('down', function() {
-      console.log('left down');
+      //console.log('left down');
       left_is_down = true;
       if(right_is_down == true){
         io.sockets.emit('both_down', 'both down');
@@ -45,14 +49,15 @@ io.on('connection', function(socket){
     });
 
     button_left.on('up', function() {
-      console.log('left up');
+      //console.log('left up');
       left_is_down = false;
       io.sockets.emit('left_up', 'left up');
       motor.stop();
+
     });
 
     button_right.on('down', function() {
-      console.log('right down');
+      //console.log('right down');
       right_is_down = true;
       if(left_is_down == true){
         io.sockets.emit('both_down', 'both down');
@@ -62,20 +67,22 @@ io.on('connection', function(socket){
     });
 
     button_right.on('up', function() {
-      console.log('right up');
+      //console.log('right up');
       right_is_down = false;
       io.sockets.emit('right_up', 'right up');
       motor.stop();
     });
 
 
-    // motor.on("start", function(err, timestamp) {
-    //   console.log("start", timestamp);
-    // });
+    motor.on("start", function(err, timestamp) {
+         console.log("start", timestamp);
+         startTime = new Date().getTime();
+    });
 
-    // motor.on("stop", function(err, timestamp) {
-    //   console.log("automated stop on timer", timestamp);
-    // });
+    motor.on("stop", function(err, timestamp) {
+      console.log("automated stop on timer", Date.parse(timestamp)-startTime);
+      startTime = new Date().getTime();
+    });
 
     // motor.on("forward", function(err, timestamp) {
     //   console.log("forward", timestamp);

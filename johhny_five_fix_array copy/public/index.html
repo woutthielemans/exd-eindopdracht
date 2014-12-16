@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>EXD - game</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+	<div id="container">
+		<section id="main">
+			<div id="sliders">
+				<div id="rot-x">
+					<input id="slider-rot-x" type="range" min="-90" max="90" />
+					<p class="note-rot-x">rotation x: <span id="current-rot-x">0</span>°</p>
+				</div>
+				<div id="rot-y">
+					<input id="slider-rot-y" type="range" min="-90" max="90" />
+					<p class="note-rot-y">rotation y: <span id="current-rot-y">0</span>°</p>
+				</div>
+				<div id="rot-z">
+					<input id="slider-rot-z" type="range" min="-90" max="90" />
+					<p class="note-rot-z">rotation z: <span id="current-rot-z">0</span>°</p>
+				</div>
+				<div id="scale-w">
+					<input id="slider-scale-w" type="range" min="1" max="500" />
+					<p class="note-scale-w">scale width</p>
+				</div>
+				<div id="scale-h">
+					<input id="slider-scale-h" type="range" min="1" max="500" />
+					<p class="note-scale-h">scale height</p>
+				</div>
+				<div id="skew-x">
+					<input id="slider-skew-x" type="range" min="-90" max="90" />
+					<p class="note-skew-x">skew x: <span id="current-skew-x">0</span>°</p>
+				</div>
+				<div id="skew-y">
+					<input id="slider-skew-y" type="range" min="-90" max="90" />
+					<p class="note-skew-y">skew y: <span id="current-skew-y">0</span>°</p>
+				</div>
+			</div>
+			<div id="fs-button"><span>TOGGLE FULLSCREEN</span></div>
+			<div id="canvas-container">
+				<div id="bg-canvas-container" style="width: 1150px; height: 850px;">
+				    <canvas id="bg-canvas" style="width: 1150px; height: 850px;" width="1150" height="850"></canvas>
+				</div>
+				<div id="top-canvas-container" style="width: 1150px; height: 850px;">
+				    <canvas id="top-canvas" style="width: 1150px; height: 850px;" width="1150" height="850"></canvas>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/easeljs-0.7.1.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="js/screenfull.js"></script>
+	<script src="js/phaser.min.js"></script>
+	<script src="js/motor-directional.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/csstransform.js"></script>
+
+</body>
+</html>
