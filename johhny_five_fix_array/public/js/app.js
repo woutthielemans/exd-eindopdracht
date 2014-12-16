@@ -107,7 +107,7 @@ $(function(){
 		top_stage.removeAllChildren();
 		top_stage.update();
 		robot = new createjs.Shape();
-		robot.graphics.beginFill('#0000ff').drawRect(robot_xPos, robot_yPos-30, 30, 30);
+		robot.graphics.drawRect(robot_xPos, robot_yPos-30, 30, 30);
 		if (robot_yPos <= 215) {
 			robot_yPos = 215;
 		};
@@ -284,11 +284,12 @@ $(function(){
 			$('#test').show();
 			console.log('OFAIZFG+OUAGF+OAUZFGIAUEFGIAUEF+IEAUYFGIAUZ/EFG/AKUEFG/KAUEFG/AUEIFGIUAEFGIUAEFGIUAEGFK/JFV/KHSV/JHSFV/AJHVFJ/EAYF/JYAEFJAYZEF/JYAEV/JHSV/JYSF/JYAVF/AUYFJYSV/YA');
 			robot.graphics.clear();
-			robot.graphics.beginFill('#00ff00').drawRect(robot_xPos, robot_yPos-30, 30, 30);
+			robot.graphics.drawRect(robot_xPos, robot_yPos-30, 30, 30);
+			// robot.graphics.beginFill('#00ff00').drawRect(robot_xPos, robot_yPos-30, 30, 30);
 		}else{
 			$('#test').hide();
 			robot.graphics.clear();
-			robot.graphics.beginFill('#0000ff').drawRect(robot_xPos, robot_yPos-30, 30, 30);
+			robot.graphics.drawRect(robot_xPos, robot_yPos-30, 30, 30);
 		}
 	}
 
