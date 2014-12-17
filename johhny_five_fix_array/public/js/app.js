@@ -414,42 +414,6 @@ $(function(){
 				// 	console.log('my: ' + menu_xPos);
 				// }
 
-
-			/* ------------------------ SOCKET ------------------------ */
-
-			    socket = io("/");
-
-				socket.on("left_down", function(data) {
-					moving_left = false;
-					moving_right = true;
-				});
-
-				socket.on("right_down", function(data) {
-					if(!menu_showing){
-						moving_right = false;
-						moving_left = true;
-					}else{
-						startGame();
-						game_on = true;
-					}
-				});
-
-				socket.on("left_up", function(data) {
-					moving_left = false;
-					moving_right = false;
-				});
-
-				socket.on("right_up", function(data) {
-					moving_left = false;
-					moving_right = false;
-				});
-
-				socket.on("both_down", function(data) {
-					// console.log('both buttons');
-				});
-
-				document.onkeydown = checkKey;
-
 				function checkKey(e) {
 
 				    e = e || window.event;
@@ -503,6 +467,41 @@ $(function(){
 		}
 
 	}
+
+	/* ------------------------ SOCKET ------------------------ */
+
+			    socket = io("/");
+
+				socket.on("left_down", function(data) {
+					moving_left = false;
+					moving_right = true;
+				});
+
+				socket.on("right_down", function(data) {
+					if(!menu_showing){
+						moving_right = false;
+						moving_left = true;
+					}else{
+						startGame();
+						game_on = true;
+					}
+				});
+
+				socket.on("left_up", function(data) {
+					moving_left = false;
+					moving_right = false;
+				});
+
+				socket.on("right_up", function(data) {
+					moving_left = false;
+					moving_right = false;
+				});
+
+				socket.on("both_down", function(data) {
+					// console.log('both buttons');
+				});
+
+				document.onkeydown = checkKey;
 
 	menuinit();
 
