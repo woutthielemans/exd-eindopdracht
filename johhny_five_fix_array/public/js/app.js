@@ -4,6 +4,7 @@ $(function(){
 	var menu = true;
 	var play_counter = 0;
 	var player_score;
+	var menu_showing = false;
 
 	socket = io("/");
 
@@ -110,7 +111,7 @@ $(function(){
 				// var incr_treshold;
 				var is_playing = false;
 				var off_road_timer = 0;
-				var menu_showing = false;
+				menu_showing = false;
 				var game_on = false;
 				var stop_timer = false;
 				var forgiveness = 25;
