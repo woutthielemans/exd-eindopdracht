@@ -9,6 +9,8 @@ $(function(){
 
 	function menuinit(){
 
+		document.onkeydown = checkKey;
+
 		play_counter++;
 
 		if(play_counter>1){
@@ -29,8 +31,15 @@ $(function(){
 
 		console.log('in menu init');
 
-		$('#menu').show();
+		if(play_counter > 1){
+			$('#menu').hide();
+			$('#menu2').show();
+		}else{
+			$('#menu').show();
+			$('#menu2').hide();
+		}
 		$('#test').hide();
+		$('#star').hide();
 		$('#lives').hide();
 		$('#distance').hide();
 		$('#multi').hide();
@@ -108,6 +117,7 @@ $(function(){
 					createjs.Ticker.addEventListener('tick', handleTick);
 					$('#test').hide();
 					$('#lives').show();
+					$('#star').show();
 					$('#distance').show();
 					$('#multi').show();
 					$('#lives span').html(lives);
@@ -472,10 +482,25 @@ $(function(){
 
 		$('#start-button').on('click', function(){
 			$('#menu').hide();
+			$('#menu2').hide();
 			menu = false;
 			run_game = true;
 			gameinit();
 		});
+
+		function checkKey(e) {
+
+		    e = e || window.event;
+
+		    if (e.keyCode == '39') {
+				e.preventDefault();
+				$('#menu').hide();
+				$('#menu2').hide();
+				menu = false;
+				run_game = true;
+				gameinit();
+		    }
+		}
 
 	}
 

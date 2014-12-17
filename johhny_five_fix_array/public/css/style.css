@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'rangerregular';
+    src: url('/assets/fonts/ranger/ranger_regular-webfont.eot');
+    src: url('/assets/fonts/ranger/ranger_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ranger/ranger_regular-webfont.woff2') format('woff2'),
+         url('/assets/fonts/ranger/ranger_regular-webfont.woff') format('woff'),
+         url('/assets/fonts/ranger/ranger_regular-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ranger/ranger_regular-webfont.svg#rangerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -36,31 +49,42 @@ html{
 	width: 200px;
 }
 
+#star{
+	float: left;
+	width: 23px;
+}
+
 #lives{
+	margin-left: 10px;
+	float: left;
+	font-family: rangerregular;
 	font-weight: bold;
 	font-size: 32px;
-	color: #000000;
+	color: #ffffff;
 	text-align: left;
 	display: block;
 	margin-bottom: 5;
 }
 
 #distance{
+	font-family: rangerregular;
 	font-weight: bold;
-	font-size: 32px;
-	color: #000000;
+	font-size: 40px;
+	color: #ffffff;
 	text-align: left;
 	display: block;
 	margin-bottom: 5;
 }
 
 #multi{
+	font-family: rangerregular;
 	font-weight: bold;
 	font-size: 32px;
-	color: #000000;
+	color: #ffffff;
 	text-align: left;
 	display: block;
 	margin-bottom: 5;
+	opacity: .6;
 }
 
 #menu{
@@ -72,9 +96,78 @@ html{
 	z-index: 99999999;
 	width: 400px;
 	height: 500px;
-	background-color: #151515;
+	background-color: #ea7542;
 	margin-left: 360px;
 	margin-top: 40px;
+}
+
+#logo{
+	width: 200px;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+
+#robot{
+	width: 110px;
+	margin-top: 20px;
+	margin-left: 145px;
+}
+
+#buttons{
+	width: 120px;
+	margin-top: 30px;
+	margin-left: 140px;
+}
+
+#menu span{
+	color: #ffffff;
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#menu2{
+	-webkit-transform: rotate(90deg);
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999999;
+	width: 400px;
+	height: 500px;
+	background-color: #ea7542;
+	margin-left: 360px;
+	margin-top: 40px;
+}
+
+#robot_busted{
+	width: 110px;
+	margin-top: 20px;
+	margin-left: 145px;
+}
+
+#buttons2{
+	width: 120px;
+	margin-top: 30px;
+	margin-left: 140px;
+}
+
+#menu2 span{
+	color: #ffffff;
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#busted{
+	font-size: 24px;
+	color: #ffffff;
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 
 #start-button{
@@ -111,7 +204,7 @@ html{
 	color: #ffffff;
 	font-size: 40px;
 	font-weight: bolder;
-	margin-top: 100px;
+	margin-top: 200px;
 	padding: 15px 0;
 }
 
@@ -156,6 +249,12 @@ html{
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+.dummy{
+	width: 0;
+	height: 0;
+	clear: both;
 }
 
 /*#canvas-container{
