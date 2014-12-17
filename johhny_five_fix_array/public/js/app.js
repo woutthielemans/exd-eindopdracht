@@ -5,6 +5,7 @@ $(function(){
 	var play_counter = 0;
 	var player_score;
 	var menu_showing = false;
+	var moving_left = false, moving_right = false;
 
 	socket = io("/");
 
@@ -98,7 +99,8 @@ $(function(){
 				var maxDiv = 35;
 				var background;
 				var yPos_arr = [];
-				var moving_left = false, moving_right = false;
+				moving_left = false;
+				moving_right = false;
 				var speed = 4, prev_speed = 4;
 				var distance_moved = 0;
 				var adj_speed;
