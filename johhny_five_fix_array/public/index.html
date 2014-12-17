@@ -9,8 +9,7 @@
 <body>
 
 	<div id="container">
-	
-		<div id="test"></div>
+
 		<section id="main">
 			<!--<div id="sliders">
 				<div id="rot-x">
@@ -42,15 +41,26 @@
 					<p class="note-skew-y">skew y: <span id="current-skew-y">0</span>°</p>
 				</div>
 			</div>-->
-			<div id="fs-button"><span>TOGGLE FULLSCREEN</span></div>
-			<div id="canvas-container">
+			<article id="fs-button"><span>TOGGLE FULLSCREEN</span></article>
+			<!-- <div id="dark"></div> -->
+			<article id="canvas-container">
+				<div id="test"></div>
+				<div id="score-container">
+					<article id="lives"><span>Erm...</span></article><br/>
+					<article id="distance"><span>What?</article><br/>
+					<article id="multi">x<span>Nope :)</span></article>
+				</div>
+				<article id="menu">
+					<span id="start-button">START</span>
+					<span id="player-score">NOSCORE</span>
+				</article>
 				<div id="bg-canvas-container" style="width: 1150px; height: 850px;">
 				    <canvas id="bg-canvas" style="width: 1150px; height: 850px;" width="1150" height="850"></canvas>
 				</div>
 				<div id="top-canvas-container" style="width: 1150px; height: 850px;">
 				    <canvas id="top-canvas" style="width: 1150px; height: 850px;" width="1150" height="850"></canvas>
 				</div>
-			</div>
+			</article>
 		</section>
 	</div>
 
